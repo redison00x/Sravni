@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.selector.ByTextCaseInsensitive;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,7 @@ public class Sravni {
         $x("//input[@name='email']").setValue("redison00x@mail.ru");
         $x("//input[@name='password']").setValue("bestPROGRAMMIST228");
         $x("//span[@class=\"_hp2bt3\"]").click();
-
+        switchTo().window(0);
+        $x("//div[@class=\"page_wrapper__Yk7Um\"]").shouldBe(Condition.visible);
     }
 }
