@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.selector.ByTextCaseInsensitive;
 import org.testng.annotations.Test;
 
@@ -16,5 +17,13 @@ public class Sravni {
         $x("//span[@class=\"_hp2bt3\"]").click();
         switchTo().window(0);
         $x("//div[@class=\"page_wrapper__Yk7Um\"]").shouldBe(Condition.visible);
+    }
+    @Test
+    public void putgoosago() throws InterruptedException {
+        SelenideElement strah = $(new ByTextCaseInsensitive("Страхование"));
+        actions().moveToElement(strah).build().perform();
+        $(new ByTextCaseInsensitive("ОСАГО")).click();
+        Thread.sleep(10000);
+
     }
 }
