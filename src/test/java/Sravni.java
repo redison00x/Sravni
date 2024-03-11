@@ -1,9 +1,11 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.selector.ByTextCaseInsensitive;
 import org.testng.annotations.Test;
-
 import static com.codeborne.selenide.Selenide.*;
+import static org.testng.Assert.assertEquals;
+import static com.codeborne.selenide.Selenide.title;
+
 
 public class Sravni {
     @Test
@@ -19,11 +21,9 @@ public class Sravni {
         $x("//div[@class=\"page_wrapper__Yk7Um\"]").shouldBe(Condition.visible);
     }
     @Test
-    public void putgoosago() throws InterruptedException {
-        SelenideElement strah = $(new ByTextCaseInsensitive("Страхование"));
-        actions().moveToElement(strah).build().perform();
-        $(new ByTextCaseInsensitive("ОСАГО")).click();
-        Thread.sleep(10000);
+    public void osagoSber() throws AssertionError {
+        open("https://osago.sberbank.ru/");
+        assertEquals (title(), "Оформить ОСАГО от Сбербанка", "Не тудой приперся");
 
     }
 }
