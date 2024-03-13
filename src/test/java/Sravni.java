@@ -24,6 +24,7 @@ public class Sravni {
     public void osagoSber() throws AssertionError {
         open("https://osago.sberbank.ru/");
         assertEquals (title(), "Оформить ОСАГО от Сбербанка", "Не тудой приперся");
+        System.out.println("Всё ок");
 
     }
 }
