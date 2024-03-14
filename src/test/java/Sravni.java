@@ -1,10 +1,10 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.selector.ByTextCaseInsensitive;
 import org.testng.annotations.Test;
+
+import static com.codeborne.selenide.Configuration.timeout;
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.Assert.assertEquals;
-import static com.codeborne.selenide.Selenide.title;
 
 
 public class Sravni {
@@ -21,10 +21,10 @@ public class Sravni {
         $x("//div[@class=\"page_wrapper__Yk7Um\"]").shouldBe(Condition.visible);
     }
     @Test
-    public void osagoSber() throws AssertionError {
+    public void osagoSber() {
+        timeout = 15000;
         open("https://osago.sberbank.ru/");
+        sleep(1500);
         assertEquals (title(), "Оформить ОСАГО от Сбербанка", "Не тудой приперся");
-        System.out.println("Всё ок");
-
     }
 }
